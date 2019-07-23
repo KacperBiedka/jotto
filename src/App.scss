@@ -93,6 +93,15 @@ $light-pink: lighten(#9f9dd9, 7);
     animation-name: fadeIn;
     animation-duration: 1s;
   }
+  .help-paragraph {
+    cursor: pointer;
+    text-decoration: underline;
+    text-decoration-color: $light-pink;
+    transition: text-decoration-color 0.25s ease;
+    &:hover {
+      text-decoration-color: #fff;
+    }
+  }
 }
 
 @keyframes fadeIn {
