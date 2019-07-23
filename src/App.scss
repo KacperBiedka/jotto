@@ -1,0 +1,97 @@
+$main-font: "Darker Grotesque", sans-serif;
+$light-pink: #f3cbff;
+
+.container {
+  text-align: center;
+  max-width: 400px;
+  margin: auto;
+  font-family: $main-font;
+  h1 {
+    font-family: "Hanalei", cursive;
+    color: #fff;
+    font-size: 7rem;
+    font-weight: 200;
+  }
+  p {
+    font-size: 25px;
+    color: #fff;
+    animation-name: fadeIn;
+    animation-duration: 1s;
+  }
+  input {
+    margin-top: 10px;
+    width: 250px;
+    height: 25px;
+    padding: 5px;
+    padding-bottom: 10px;
+    font-size: 25px;
+    font-family: $main-font;
+    background: none;
+    border: solid 1px #fff;
+    color: #fff;
+    transition: border-color 0.5s ease;
+    &::placeholder {
+      color: #fff;
+    }
+    &:focus {
+      border: solid 1px $light-pink;
+      outline: none;
+    }
+  }
+  button {
+    height: 40px;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    width: 260px;
+    padding-bottom: 15px;
+    border: solid 1px $light-pink;
+    font-family: $main-font;
+    font-size: 25px;
+    color: $light-pink;
+    cursor: pointer;
+    transition: background-color 0.25s ease, color 0.25s ease;
+    &:hover {
+      background-color: $light-pink;
+      color: #fff;
+    }
+    &:focus {
+      outline: none;
+    }
+  }
+  table {
+    max-width: 400px;
+    color: #fff;
+    margin: 25px auto;
+    font-size: 25px;
+    animation-name: fadeIn;
+    animation-duration: 1s;
+  }
+  th {
+    padding: 25px;
+  }
+  td {
+    border-bottom: solid 1px #fff;
+    animation-name: fadeIn;
+    animation-duration: 1s;
+  }
+  .congrats-div {
+    margin: 25px auto;
+    padding: 10px;
+    background: $light-pink;
+    animation-name: fadeIn;
+    animation-duration: 1s;
+    p {
+      color: #1d1d1d;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
