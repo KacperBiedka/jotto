@@ -8,7 +8,13 @@ export class UnconnectedInput extends Component {
   submitGuessedWord = event => {
     event.preventDefault();
     const guessedWord = this.inputBox.current.value;
-    if (guessedWord && guessedWord.length > 0) {
+    if (guessWord && guessedWord.length > 7) {
+      alert("The can not be longer than 7 characters");
+    } else if (
+      guessedWord &&
+      guessedWord.length > 0 &&
+      guessedWord.length <= 7
+    ) {
       this.props.guessWord(guessedWord);
     }
     this.inputBox.current.value = "";

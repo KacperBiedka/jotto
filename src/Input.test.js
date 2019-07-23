@@ -88,11 +88,25 @@ describe("`guessWord` action creator call", () => {
     const guessWordCallCount = guessWordMock.mock.calls.length;
     expect(guessWordCallCount).toBe(1);
   });
-  test("calls `guessWord` with input value as arguemnt", () => {
+  test("calls `guessWord` with input value as argument", () => {
     const guessWordArg = guessWordMock.mock.calls[0][0];
     expect(guessWordArg).toBe(guessedWord);
   });
   test("input box clears on submit", () => {
     expect(wrapper.instance().inputBox.current.value).toBe("");
   });
+});
+
+test("does not call `guessWord` when the word is too long", () => {
+  const guessedWord = "word longer than 7 letters";
+  const guessWordMock = jest.fn();
+  const props = {
+    guessWord: guessWordMock
+  };
+  const wrapper = shallow(<UnconnectedInput {...props} />);
+  wrapper.instance().inputBox.current = { value: guessedWord };
+  const submitButton = findByTestAttr(wrapper, "submit-button");
+  submitButton.simulate("click", { preventDefault() {} });
+  const guessWordCallCount = guessWordMock.mock.calls.length;
+  expect(guessWordCallCount).toBe(0);
 });
