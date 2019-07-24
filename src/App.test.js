@@ -9,9 +9,12 @@ import App, { UnconnectedApp } from "./App";
  * @param {object} state - State for this setup.
  * @returns {ShallowWrapper}
  */
-const setup = (state = {}) => {
+const defaultProps = { success: false };
+
+const setup = (state = {}, props = { success: false }) => {
+  const setupProps = { ...defaultProps, ...props };
   const store = storeFactory(state);
-  const wrapper = shallow(<App store={store} />)
+  const wrapper = shallow(<App {...setupProps} store={store} />)
     .dive()
     .dive();
   return wrapper;
@@ -58,7 +61,7 @@ describe("secret word display", () => {
       expect(paragraph.length).toBe(1);
     });
   });
-  describe("show secret word has not been clicked", () => {
+  describe("show secret word has been clicked", () => {
     let wrapper;
     let showSecretWordParagraph;
     beforeEach(() => {
@@ -74,6 +77,19 @@ describe("secret word display", () => {
       const paragraph = findByTestAttr(wrapper, "show-secret-word");
       expect(paragraph.length).toBe(0);
     });
+  });
+});
+
+describe("reset word", () => {
+  test("reset word paragraph is not displayed on component mount", () => {
+    const wrapper = setup();
+    const paragraph = findByTestAttr(wrapper, "reset-word-paragraph");
+    expect(paragraph.length).toBe(0);
+  });
+  test("reset word paragraph is displayed when the success is true", () => {
+    const wrapper = setup({ success: true });
+    const paragraph = findByTestAttr(wrapper, "reset-word-paragraph");
+    expect(paragraph.length).toBe(1);
   });
 });
 

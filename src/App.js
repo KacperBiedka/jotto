@@ -23,11 +23,23 @@ export class UnconnectedApp extends Component {
     });
   };
 
+  resetWord = () => {
+    window.location.reload();
+  };
+
   render() {
     return (
       <div className="container">
         <h1>Jotto</h1>
-        {this.state.displaySecretWord ? (
+        {this.props.success ? (
+          <p
+            data-test="reset-word-paragraph"
+            className="help-paragraph"
+            onClick={this.resetWord}
+          >
+            Guess a different word
+          </p>
+        ) : this.state.displaySecretWord ? (
           <p data-test="secret-word-paragraph">
             The secret word is {this.props.secretWord}
           </p>
@@ -37,7 +49,7 @@ export class UnconnectedApp extends Component {
             onClick={this.toggleDisplaySecretWord}
             className="help-paragraph"
           >
-            Show secret word
+            Show the secret word
           </p>
         )}
         <Congrats success={this.props.success} />
