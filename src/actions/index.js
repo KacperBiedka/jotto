@@ -1,5 +1,4 @@
 import { getLetterMatchCount } from "../helpers";
-import axios from "axios";
 import randomWords from "random-words";
 
 export const actionTypes = {
