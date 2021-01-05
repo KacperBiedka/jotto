@@ -5,7 +5,7 @@
   "homepage": "https://kacperbiedka.github.io/jotto",
   "dependencies": {
     "ajv": "^6.10.0",
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "check-prop-types": "^1.1.2",
     "gh-pages": "^2.0.1",
     "node-sass": "^4.12.0",
