@@ -8,7 +8,7 @@
     "axios": "^0.21.2",
     "check-prop-types": "^1.1.2",
     "gh-pages": "^2.0.1",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "prop-types": "^15.7.2",
     "random-words": "^1.1.0",
     "react": "^16.8.6",
